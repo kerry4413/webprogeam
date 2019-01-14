@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    
+    <title>NTOUCSE POKEMON</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="Untitled-1.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="loading.js"></script>
+    <style>
+        div{
+            font-size: 28px; 
+            color: white;
+        }
+        #bkg{
+            width:70%;
+            height:70%;
+        }
+        #status{
+            top:70%; 
+            height:25%;
+            width: 65%;
+            border:3px white solid; 
+            background-color: rgba(255, 255, 255, 0.349);
+            z-index: 4; 
+            position: absolute; 
+            color: white;
+            left: 3%;
+            font-size: 28px;  
+        }
+        .zh{
+            position: absolute;
+            width:16%;
+            height:90%;
+            z-index: 2;
+            left:2%;
+            top:3%;
+            border: red solid 4px;
+            
+        }
+        #hpid{
+            position:absolute;
+            left: 20%;
+            top:3%;
+        }
+        button{
+            position: absolute; 
+            z-index:6 ;
+            background-color:rgba(255, 255, 255, 0);
+            width:15%;
+            height:50%;
+            font-size: 28px;
+            font-weight: bold;
+            color:black;
+            text-align: left;
+            border: none;
+        }
+        button:hover{
+            background-color: black;
+            color: white;
+        }
+        #situ{
+            top:30%;
+            left:20%;
+            position: absolute;
+            width:40%;
+            height:60%;
+            border: 1px solid white;
+        }
+        #eng{
+            position: absolute;
+            width:15%;
+            height: 30%; 
+            right:35%;
+            top:5%; 
+        }
+        #estatus{
+            background-color:rgba(255, 255, 255, 0.349);
+            position: absolute;
+            width: 15%;
+            height: 15%;
+            top:5%; 
+            right:55%;
+        }
+        p{
+            padding-left: 10%;
+            font-size: 18px;
+            color: white;
+        }
+    </style>
+    <script>
+        var eng=parseInt(localStorage.getItem("eng"));
+        var ehp=85;
+        var maxehp=parseInt(localStorage.getItem("maxehp"));
+        var dmgesk=parseInt(localStorage.getItem("dmgesk"));
+        var hp=parseInt(localStorage.getItem("hp"));
+        var maxhp=parseInt(localStorage.getItem("maxhp"));
+        var dmgsk1=parseInt(localStorage.getItem("dmgsk1")) ;
+        var dmgsk2=parseInt(localStorage.getItem('dmgsk2'));
+        var dmgsk3=parseInt(localStorage.getItem("dmgsk3"));
+
+        
+        var ehpid;
+        var hpid;
+        var situ;
+        var potionid;    
+        window.addEventListener("load",start,false);
+        function start(){
+            sethp();
+        }
+        function check(){
+            situ=document.getElementById("situ");
+            if(ehp<=0){
+                situ.innerHTML='你贏了!';
+                setTimeout("window.open('win.html','_self')",2000);
+                return 0;
+            }
+            if(hp<=0){
+                setTimeout("window.open('dead.html','_self')",2000);
+                return 0;
+            }
+        }
+        function sethp(){
+            ehpid=document.getElementById("ehpid");
+            hpid=document.getElementById("hpid");
+            if(ehp>0){
+                ehpid.innerHTML="HP:"+ehp+'/85';
+            }
+            else{
+                ehp=0;
+                ehpid.innerHTML="HP:"+ehp+'/85';
+            }
+            if(hp>0){
+                hpid.innerHTML="HP:"+hp+'/'+maxhp;
+            }
+            else{
+                hp=0;
+                hpid.innerHTML="HP:"+hp+'/'+maxhp;
+            }
+        }
+        function disabledbutton(){
+            var i;
+            for(i=1;i<=4;i++){
+                var s=document.getElementById("sk"+i).disabled=true;
+                $("#sk"+i).hide();
+                console.log(i);
+                console.log(document.getElementById("sk"+i));
+            }
+        }
+        function enabledbutton(){
+            var i;
+            for(i=1;i<=4;i++){
+                var s=document.getElementById("sk"+i).disabled=false;
+                $("#sk"+i).show();
+
+            }
+        }
+        function eatk(){
+            var a=Math.floor((Math.random()*6)+2);
+            hp-=a;
+            sethp();
+            situ=document.getElementById("situ");
+            if(a!=0){
+               var int=setInterval(situ.innerHTML='轉學考對你造成'+a+'點傷害!',1500);
+            }
+            else {
+                var int=setInterval(situ.innerHTML='轉學考沒有對你造成傷害!',1500);
+            }
+            clearInterval(int);
+            if(check()!=0 ){
+                setTimeout('enabledbutton()',2000);
+            }
+            
+
+        }
+        function atksk1(){
+            disabledbutton();
+            var a=Math.floor((Math.random()* dmgsk1));
+            ehp-=a;
+            sethp();
+            situ=document.getElementById("situ");
+            if(a!=0){
+                var int=setInterval(situ.innerHTML='周鼎軒用微積分學習要訣，對轉學考造成'+a+'點傷害!',1500);
+            }
+            else {
+                var int=setInterval(situ.innerHTML='沒有造成傷害!',1500);
+            }
+            clearInterval(int);
+            if(check()!=0){
+                setTimeout('eatk()',2000);
+            }
+            
+        }
+        function atksk2(){
+            disabledbutton();
+            var a=Math.floor((Math.random()* dmgsk2));
+            ehp-=a;
+            sethp();
+            situ=document.getElementById("situ"); 
+            if(a!=0){
+                var int=setInterval(situ.innerHTML='周鼎軒用多益金色證書，對轉學考造成'+a+'點傷害!',1500);
+            }
+            else {
+                var int=setInterval(situ.innerHTML='沒有造成傷害!',1500);
+            }
+            clearInterval(int);
+            if(check()!=0){
+                setTimeout('eatk()',2000);
+            }
+        } 
+         function atksk3(){
+            disabledbutton();
+            var a=Math.floor((Math.random()* dmgsk3));
+            ehp-=a;
+            sethp();
+            situ=document.getElementById("situ");
+            if(a!=0){
+                var int=setInterval(situ.innerHTML='周鼎軒以計概大師的稱號，對轉學考造成'+a+'點傷害!',1500);
+            }
+            else {
+                var int=setInterval(situ.innerHTML='沒有造成傷害!',1500);
+            }
+            clearInterval(int);
+            if(check()!=0){
+                setTimeout('eatk()',2000);
+            }
+        }
+        function afk(){
+            disabledbutton();
+            var a=Math.floor((Math.random()*5)+1);
+            if(hp+a>maxhp){
+                a=maxhp-hp;
+            }
+            hp+=a;
+            sethp();
+            situ=document.getElementById("situ");
+            if(a!=0){
+                var int=setInterval(situ.innerHTML='周鼎軒發呆後，回復了'+a+'點HP!',1500);
+            }
+            else{
+                var int=setInterval(situ.innerHTML='HP已滿，沒有回復HP!',1500);
+            }
+
+            clearInterval(int);
+            if(check()!=0){
+                setTimeout('eatk()',2000);
+            }
+        }
+    </script>
+</head>
+<body>
+    <audio id="sound" preload="auto"><source src="音效/按鈕6.mp3" type="audio/mpeg">button</audio>
+    <div style="position:relative;left:15%;">
+        <img id="bkg" src="3.jpg">
+        <img id="eng" src="ncku.png">
+        <div id="estatus">
+            <p>BOSS:轉學考</p>
+            <p id="ehpid">HP</p>
+        </div>
+        
+        <div id="status">
+            <img src="1.png" class="zh">
+            <div id="hpid">HP</div>
+            <div id="situ">選擇招式!</div>
+            <button id="sk1" style="right:20%" onclick="atksk1()" onmouseover="sound.play()">微積分要訣</button>
+            <button id="sk2" style=" right:5%" onclick="atksk2()" onmouseover="sound.play()">多益金證書</button>
+            <button id="sk3" style="top:50%; right:20%" onclick="atksk3()" onmouseover="sound.play()">計概大師</button>
+            <button id="sk4" style="top: 50%; right:5%" onclick="afk()" onmouseover="sound.play()">發呆</button>
+        </div>
+    </div>
+    <embed src="音效/戰鬥.mp3" autostart=true hidden=true loop=true>
+</body>
+</html>

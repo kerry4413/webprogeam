@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>NTOUCSE POKEMON</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="Untitled-1.css">
+    <script src="loading.js"></script>
+    <style>
+    .background{
+        position: relative;
+        width:70%;
+        height:43.9vw; 
+        margin-left: 15%;
+        margin-top: 0%;
+    }
+    .background img{
+        width: 100%;
+        height: 100%;
+        margin:0;
+        padding:0;
+        background-size: cover;
+        -moz-background-size: cover;
+    }
+    .title h1{
+        font-weight: bolder;
+        font-size: 6vw;
+        position: relative;
+        margin-top: -41%;
+        text-align: center;
+        color: white;
+    }
+    .content{
+        position: relative;
+        margin-left: 20%;
+        margin-top: -4%;
+        border-collapse: collapse;
+        border-style: solid;
+        border-color: white;
+        width: 60%;
+        height: 29vw;
+        background-color:rgba(128, 128, 128, 0.842);
+    }
+    .story{
+        font-size: 2vw;
+        font-weight: bolder;
+        margin-left: 5%;
+        color: black;
+    }
+    .way{
+        font-size: 2.5vw;
+        font-weight: bolder;
+        margin-left: 5%;
+        color: black;
+    }
+    .story2{
+        margin-top: -2%;
+        font-size: 2vw;
+        font-weight: bolder;
+        margin-left: 15%;
+        color: black;
+    }
+    .trip{
+        margin-top: -2%;
+        font-size: 4vw;
+        font-weight: bolder;
+        margin-left: 15%;
+        color: yellow;
+        -webkit-text-stroke: 1px red;
+    }
+    button{
+        text-align: center;
+    }
+    .start{
+        font-size: 2vw;
+
+    }
+    .bt{
+        margin-top: 1%;
+        position: relative;
+        text-align: center;
+        z-index: 4;
+    }
+    </style>
+    <script>
+    function game(){
+            localStorage.setItem('cheat','0');
+            window.open('pick.html','_self');
+        }
+    </script>
+</head>
+<body>
+    <audio id="sound" preload="auto"><source src="音效/按鈕6.mp3" type="audio/mpeg">button</audio>
+    <div class="background"><img z-index=1 src="3.jpg" alt="bg"></div>
+    <div class="title" z-index=999 >
+        <h1>說明</h1>
+    </div>
+    <div class="content">
+        <p class="story">這是關於一個對大學充滿憧憬，期盼能讀更好的大學，因而努<br>力讀書只為了更好的未來的故事，故事是如何就讓我們繼續<br>看下去..........</p>
+        <p class="way">遊戲方法：</p>
+        <p class="story2">點擊技能施放招數，將各個難關擊破即可!!</p>
+        <p class="trip">就讓我們的旅程開始吧~~~</p>
+    </div>
+    <div class="bt"><button class="start" onclick="game()" onmouseover="sound.play()">開始遊戲</button></div>
+    <embed src="音效/等待1.mp3" hidden=true loop=true>
+</body>
+</html>

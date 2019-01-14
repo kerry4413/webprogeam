@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>NTOUCSE POKEMON</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="Untitled-1.css" />
+    <script src="loading.js"></script>
+    <style>
+        a{
+            position: relative;
+            font-size: 5vw;
+            margin-left: -16%;
+            color: cyan;
+            background-color: white;
+            -webkit-text-stroke-width: 0.1vw;
+            -webkit-text-stroke-color: black;
+            text-decoration: none;
+        }
+    </style>
+    <script> 
+        var cal;
+        var eng;
+        var com;
+        var ehp;
+        var dmgesk;
+        var pot;
+        var hp;
+        var maxhp;
+        var dmgsk1;
+        var dmgsk2;
+        var dmgsk3;
+        var sound;
+        var startgame;
+
+        var wh=localStorage.getItem('where');
+        window.addEventListener("load",start,false);
+        function start(){
+            sound=document.getElementById("sound");
+            startgame=document.getElementById("startgame");
+            console.log(wh);
+            if(wh=='s1'){
+                document.getElementById('continue').disabled=false;
+            }
+
+        }
+        function cheat(){
+            localStorage.setItem('cheat','1');
+            window.open('pick.html','_self');
+        }
+        function gamu(){
+            localStorage.setItem('cheat','0');
+            window.open('pick.html','_self');
+        }
+    </script>
+</head>
+<body>
+    <audio id="sound" preload="auto"><source src="音效/按鈕6.mp3" type="audio/mpeg">button</audio>
+    <div class="head1">Pokemon</div>
+    <div class="head2"> NTOUCSE ver.</div>
+    <input id="startgame" type="button" value="開始遊戲" onclick="gamu()" class="button0" onmouseover="sound.play()" >
+    <input id="continue" type="button" value="繼續遊戲" class="button1" disabled onclick="window.open('game.html','_self')" onmouseover="sound.play()">
+    <input id="manual" type="button" value="說明" class="button2" onclick="window.open('description.html','_self')" onmouseover="sound.play()">
+    <button id="cheat" class="button2" style="top:90px" onclick="cheat()" onmouseover="sound.play()">cheat</button>
+    <embed src="音效/等待1.mp3" hidden=true loop=true>
+    <button id="cheat" class="button2" style="top:110px" onmouseover="sound.play()" onclick="window.open('https://docs.google.com/presentation/d/16UlP8zBsD2m-Ut8ChGtFmpgYAaOBrVi7s5bXognXW-E/edit#slide=id.p1')">簡報</button>
+</body>
+</html>

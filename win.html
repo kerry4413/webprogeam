@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>NTOUCSE POKEMON</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="Untitled-1.css" />
+    <script src="loading.js"></script> 
+    <style>
+        #cc{
+            position: absolute;
+            left: 15%;
+            margin-top: 20%;
+            font-weight: bolder;
+            font-size: 6vw;
+            animation-name: win;
+            animation-duration: 2s;
+            text-shadow:
+            5px 5px 0 #000,
+            -1px -1px 0 #000,  
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000;
+            -webkit-text-stroke: 0.1vw black;
+            animation-iteration-count:infinite;
+            animation-direction: alternate;
+            
+        }
+        .good{
+            position: absolute;
+            z-index: 999;
+            width: 50%;
+            height: 12vw;
+            margin-left: 26.5%;
+            margin-top: 5%;
+        }
+        .good img{
+            width: 100%;
+            height: 100%;
+            margin:0;
+            padding:0;
+            background-size: cover;
+            -moz-background-size: cover;
+        }
+        .background{
+            position: absolute;
+            width:70%;
+            height:43.9vw; 
+            margin-left: 15%;
+        }
+        .background img{
+            width: 100%;
+            height: 100%;
+            margin:0;
+            padding:0;
+            background-size: cover;
+            -moz-background-size: cover;
+        }
+        .restart{
+            position: relative;
+            left: 21%;
+            margin-top:30%;
+            width: 60%;
+            height: 3vw;
+            background-color:rgba(128, 128, 128, 0.842);
+            border-style: solid;
+            border-color: black;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bolder;
+            font-size: 2vw;
+        }
+        @keyframes win{
+            0%{
+               color: #FFFF77;
+               left: 20%;
+            }
+            50%{
+                color: #FFFF33;
+            }
+            100%{
+                color: #FFFF00;
+                left: 36%;
+            }
+        }
+    </style>
+    <script></script>
+</head>
+<body>
+    <audio id="sound" preload="auto"><source src="音效/按鈕6.mp3" type="audio/mpeg">button</audio>
+    <div class="background"><img src="3.jpg" alt="bg"></div>
+    <div class="good"><img src="good.png" alt="good.png"></div>
+    <div id="cc">恭喜成為成大生!!</div>
+    <input class="restart" type="button" value="返回首頁" onclick="location.href='homepage.html'" onmouseover="sound.play()">
+    <embed src="音效/成大校歌.mp3 " autostart=true hidden=true loop=true >
+</body>
+</html>
