@@ -6,7 +6,7 @@ var _LoadingTop = _PageHeight > 250 ? (_PageHeight - 250) / 2 : 0,
 _LoadingLeft = _PageWidth > 200 ? (_PageWidth - 200) / 2 : 0;
 //在页面未加载完毕之前显示的loading Html自定义内容
 //var _LoadingHtml = '<div id="loadingDiv" style="position:absolute;left:0;width:100%;height:' + _PageHeight + 'px;top:0;background:#f3f8ff;opacity:1;filter:alpha(opacity=80);z-index:10000;"><div style="position: absolute; cursor1: wait; left: ' + _LoadingLeft + 'px; top:' + _LoadingTop + 'px; width: auto; height: 57px; line-height: 57px; padding-left: 50px; padding-right: 5px; background: #fff url(/Content/Images/loading.gif) no-repeat scroll 5px 10px; border: 2px solid #95B8E7; color: #696969;">页面加载中，请等待...</div></div>';
-var _LoadingHtml = '<div id="loadingDiv" style="position:absolute;left:0;width:100%;height:' + _PageHeight + 'px;top:0;background: white;z-index:10000;"><div style="position: absolute; cursor1: wait; left: ' + _LoadingLeft + 'px; top:' + _LoadingTop + 'px; width: 128px; height: 128px; line-height: 128px; padding-right: 5px; background:white url(zhou.gif) no-repeat scroll -64px -64px;"></div></div>';
+var _LoadingHtml = '<div id="loadingDiv" style="position:absolute;left:0;width:100%;height:' + _PageHeight + 'px;top:0;background:white;z-index:10000;"><div style="position: absolute; cursor1: wait; left: ' + _LoadingLeft + 'px; top:' + _LoadingTop + 'px; width: 128px; height: 128px; line-height: 128px;  padding-right: 5px; background:white url(zhou.gif) no-repeat scroll -64px -64px;"></div></div>';
 
 //呈现loading效果
 document.write(_LoadingHtml);
